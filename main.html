@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <title>Deden Fadhli - Mobile Developer Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-dark: #0a0e27;
+        --secondary-dark: #1a1d2e;
+        --accent-cyan: #00d9ff;
+        --accent-purple: #a855f7;
+        --text-light: #e2e8f0;
+        --text-gray: #94a3b8;
+        --bg-overlay: rgba(26, 29, 46, 0.6);
+        --border-color: rgba(0, 217, 255, 0.2);
+      }
+
+      [data-theme="light"] {
+        --primary-dark: #f8fafc;
+        --secondary-dark: #ffffff;
+        --accent-cyan: #0891b2;
+        --accent-purple: #9333ea;
+        --text-light: #1e293b;
+        --text-gray: #475569;
+        --bg-overlay: rgba(255, 255, 255, 0.8);
+        --border-color: rgba(14, 165, 233, 0.2);
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--primary-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(10, 14, 39, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        z-index: 1000;
+        border-bottom: 1px solid var(--border-color);
+        transition: background 0.3s ease;
+      }
+
+      [data-theme="light"] .nav {
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .nav-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--text-gray);
+        text-decoration: none;
+        transition: color 0.3s;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-cyan);
+      }
+
+      .nav-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .theme-toggle,
+      .lang-toggle {
+        background: var(--bg-overlay);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 1.25rem;
+        transition: all 0.3s;
+        color: var(--text-light);
+        font-weight: 500;
+      }
+
+      .theme-toggle:hover,
+      .lang-toggle:hover {
+        border-color: var(--accent-cyan);
+        transform: translateY(-2px);
+      }
+
+      .lang-toggle {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6rem 2rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(0, 217, 255, 0.1),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 50%,
+            rgba(168, 85, 247, 0.1),
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-text p {
+        font-size: 1.25rem;
+        color: var(--text-gray);
+        margin-bottom: 2rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 0.875rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--accent-cyan);
+        color: var(--accent-cyan);
+      }
+
+      .btn-secondary:hover {
+        background: rgba(0, 217, 255, 0.1);
+      }
+
+      .hero-image {
+        display: flex;
+        justify-content: center;
+      }
+
+      .profile-card {
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .profile-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .profile-img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 4px solid;
+        border-image: linear-gradient(
+            135deg,
+            var(--accent-cyan),
+            var(--accent-purple)
+          )
+          1;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        background-image: url("assets/images/photo-profile.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .section {
+        padding: 6rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-card {
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent-cyan);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-label {
+        color: var(--text-gray);
+        margin-top: 0.5rem;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .about-text {
+        font-size: 1.125rem;
+        color: var(--text-gray);
+        line-height: 1.8;
+      }
+
+      .about-text h3 {
+        color: var(--text-light);
+        margin: 1.5rem 0 1rem;
+        font-size: 1.5rem;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        background: rgba(0, 217, 255, 0.1);
+        border: 1px solid rgba(0, 217, 255, 0.3);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        color: var(--accent-cyan);
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-category {
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s;
+      }
+
+      .skill-category:hover {
+        border-color: var(--accent-cyan);
+        transform: translateY(-5px);
+      }
+
+      .skill-category h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent-cyan);
+      }
+
+      .skill-item {
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-name {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .skill-bar {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      [data-theme="light"] .skill-bar {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-progress {
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        border-radius: 10px;
+        transition: width 1s ease-out;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent-cyan);
+        box-shadow: 0 20px 40px rgba(0, 217, 255, 0.2);
+      }
+
+      .project-image {
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 217, 255, 0.2),
+          rgba(168, 85, 247, 0.2)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        border-bottom: 1px solid var(--border-color);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .project-image.traveleco {
+        background-image: url("assets/projects/traveleco.webp");
+      }
+
+      .project-image.smartnation {
+        background-image: url("assets/projects/smartnation.jpeg");
+      }
+
+      .project-image.inidesaku {
+        background-image: url("assets/projects/inidesaku.webp");
+      }
+
+      .project-image.vehicle-detection {
+        background-image: url("assets/projects/thesis.png");
+      }
+
+      .project-image.hrms {
+        background-image: url("assets/projects/hrms.jpg");
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .project-desc {
+        color: var(--text-gray);
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .tech-badge {
+        background: rgba(168, 85, 247, 0.2);
+        border: 1px solid rgba(168, 85, 247, 0.4);
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.75rem;
+        color: var(--accent-purple);
+      }
+
+      .experience-timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 3rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2rem;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -2.5rem;
+        top: 0;
+        width: 1rem;
+        height: 1rem;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        border: 3px solid var(--primary-dark);
+      }
+
+      .timeline-content {
+        background: var(--bg-overlay);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s;
+      }
+
+      .timeline-content:hover {
+        border-color: var(--accent-cyan);
+        transform: translateX(10px);
+      }
+
+      .timeline-header {
+        margin-bottom: 1rem;
+      }
+
+      .timeline-title {
+        font-size: 1.5rem;
+        color: var(--text-light);
+        margin-bottom: 0.25rem;
+      }
+
+      .timeline-company {
+        color: var(--accent-cyan);
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .timeline-date {
+        color: var(--text-gray);
+        font-size: 0.875rem;
+      }
+
+      .timeline-desc {
+        color: var(--text-gray);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-desc li {
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-section {
+        text-align: center;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 3rem;
+        align-items: start;
+      }
+
+      .contact-info {
+        text-align: left;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: var(--bg-overlay);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        transition: all 0.3s;
+      }
+
+      .contact-item:hover {
+        border-color: var(--accent-cyan);
+        transform: translateX(5px);
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        text-align: left;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-gray);
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        background: var(--bg-overlay);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        color: var(--text-light);
+        font-family: inherit;
+        transition: all 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-cyan);
+        box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      footer {
+        background: var(--bg-overlay);
+        border-top: 1px solid var(--border-color);
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 217, 255, 0.1);
+        border: 1px solid rgba(0, 217, 255, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--accent-cyan);
+        font-size: 1.5rem;
+        transition: all 0.3s;
+      }
+
+      .social-icon:hover {
+        background: linear-gradient(
+          135deg,
+          var(--accent-cyan),
+          var(--accent-purple)
+        );
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      .footer-text {
+        color: var(--text-gray);
+        font-size: 0.875rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--accent-cyan);
+        transition: all 0.3s;
+      }
+
+      @media (max-width: 968px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 2.5rem;
+        }
+
+        .cta-buttons {
+          justify-content: center;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 100%;
+          background: rgba(10, 14, 39, 0.98);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          padding: 2rem;
+          transition: left 0.3s;
+        }
+
+        [data-theme="light"] .nav-links {
+          background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-right {
+          gap: 1rem;
+        }
+
+        .nav-controls {
+          gap: 0.5rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-text h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .theme-toggle,
+        .lang-toggle {
+          padding: 0.4rem 0.6rem;
+          font-size: 1rem;
+        }
+
+        .lang-toggle {
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <nav class="nav">
+      <div class="nav-content">
+        <div class="logo">DenFdhl</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-links" id="navLinks">
+            <li>
+              <a href="#home" onclick="closeMenu()" data-translate="nav_home"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="#about" onclick="closeMenu()" data-translate="nav_about"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#skills"
+                onclick="closeMenu()"
+                data-translate="nav_skills"
+                >Skills</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                onclick="closeMenu()"
+                data-translate="nav_projects"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                onclick="closeMenu()"
+                data-translate="nav_experience"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                onclick="closeMenu()"
+                data-translate="nav_contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-controls">
+            <button
+              class="theme-toggle"
+              onclick="toggleTheme()"
+              title="Toggle theme"
+            >
+              🌓
+            </button>
+            <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">
+              EN
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 data-translate="hero_greeting">
+            Hi, I'm <span class="gradient-text">Deden Fadhli</span>
+          </h1>
+          <p data-translate="hero_title">
+            Mobile Developer | Flutter & Kotlin Specialist
+          </p>
+          <p
+            style="font-size: 1rem; margin-bottom: 2rem"
+            data-translate="hero_subtitle"
+          >
+            Fresh graduate in Informatics Engineering passionate about building
+            innovative mobile applications that make a difference.
+          </p>
+          <div class="cta-buttons">
+            <a
+              href="#projects"
+              class="btn btn-primary"
+              data-translate="hero_btn_projects"
+              >View Projects</a
+            >
+            <a
+              href="#contact"
+              class="btn btn-secondary"
+              data-translate="hero_btn_contact"
+              >Contact Me</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-card">
+            <div class="profile-img"></div>
+            <h3>Deden Fadhli</h3>
+            <p
+              style="color: var(--text-gray); margin-top: 0.5rem"
+              data-translate="profile_role"
+            >
+              Mobile Developer
+            </p>
+            <p
+              style="
+                color: var(--accent-cyan);
+                margin-top: 0.5rem;
+                font-size: 0.875rem;
+              "
+            >
+              📍 Bekasi, Indonesia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2 class="section-title">
+        <span data-translate="about_title">About</span>
+        <span class="gradient-text" data-translate="about_me">Me</span>
+      </h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p data-translate="about_p1">
+            I am a fresh graduate from Krisnadwipayana University with a
+            Bachelor's degree in Informatics Engineering (GPA: 3.82/4.00). As an
+            experienced application developer, I specialize in designing and
+            implementing innovative mobile applications and websites.
+          </p>
+
+          <h3 data-translate="about_h1">What I Do</h3>
+          <p data-translate="about_p2">
+            I focus on building cross-platform mobile applications using Flutter
+            and native Android development with Kotlin MVVM architecture. I'm
+            proficient in implementing responsive layouts, integrating RESTful
+            APIs, and optimizing application performance for the best user
+            experience.
+          </p>
+
+          <h3 data-translate="about_h2">My Passion</h3>
+          <p data-translate="about_p3">
+            I'm passionate about continuous learning and exploring new
+            technologies. I thrive in collaborative environments, working with
+            cross-functional teams including designers and developers to deliver
+            seamless end-to-end solutions. My goal is to create applications
+            that are not only functional but also innovative and user-friendly.
+          </p>
+        </div>
+        <div>
+          <h3
+            style="color: var(--text-light); margin-bottom: 1rem"
+            data-translate="about_tech_title"
+          >
+            Technologies I Work With
+          </h3>
+          <div class="tech-list">
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Dart</span>
+            <span class="tech-tag">Kotlin</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">HTML/CSS/JS</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">RESTful API</span>
+            <span class="tech-tag">Git</span>
+            <span class="tech-tag">Android Studio</span>
+            <span class="tech-tag">VS Code</span>
+            <span class="tech-tag">Postman</span>
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">Jira</span>
+            <span class="tech-tag">Trello</span>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number">2+</div>
+              <div class="stat-label" data-translate="stat_experience">
+                Years Experience
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">5+</div>
+              <div class="stat-label" data-translate="stat_projects">
+                Projects Completed
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">3.82</div>
+              <div class="stat-label" data-translate="stat_gpa">GPA Score</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <div class="stat-label" data-translate="stat_commitment">
+                Commitment
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <h2 class="section-title">
+        <span data-translate="skills_title">Skills &</span>
+        <span class="gradient-text" data-translate="skills_tech"
+          >Technologies</span
+        >
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 data-translate="skills_mobile">Mobile Development</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Flutter & Dart</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Kotlin</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Java Android</span>
+              <span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>HTML/CSS/JS</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Bootstrap</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 data-translate="skills_backend">Backend & Database</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Firebase</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>RESTful API</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>PHP</span>
+              <span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 data-translate="skills_tools">Tools</h3>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Git & GitHub</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>Postman</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <h2 class="section-title">
+        <span data-translate="projects_title">Featured</span>
+        <span class="gradient-text" data-translate="projects_word"
+          >Projects</span
+        >
+      </h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image traveleco"></div>
+          <div class="project-content">
+            <h3 class="project-title">TravelECO</h3>
+            <p class="project-desc" data-translate="project1_desc">
+              The Geo Tagging & Carbon Footprint Based Ecotourism Marketplace
+              Platform. An innovative solution for eco-conscious travelers to
+              discover sustainable tourism destinations.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Kotlin</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">TensorFlow</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_role">Role:</strong>
+              <span data-translate="project1_role"
+                >Mobile Developer & Team Leader</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image smartnation"></div>
+          <div class="project-content">
+            <h3 class="project-title">Smartnation</h3>
+            <p class="project-desc" data-translate="project2_desc">
+              News website containing updates on smart city development. Rebuilt
+              with mobile-first design approach and modern UI/UX principles for
+              better user engagement.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Vue.js</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Bootstrap</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_role">Role:</strong>
+              <span data-translate="project2_role">Frontend Developer</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image inidesaku"></div>
+          <div class="project-content">
+            <h3 class="project-title">Inidesaku</h3>
+            <p class="project-desc" data-translate="project3_desc">
+              Mobile application with a smart city concept designed to help
+              rural residents carry out digital activities. Built using modern
+              Android architecture patterns.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Kotlin</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">RESTful API</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_role">Role:</strong>
+              <span data-translate="project3_role">Mobile Developer</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image vehicle-detection"></div>
+          <div class="project-content">
+            <h3 class="project-title" data-translate="project4_title">
+              Vehicle Detection System
+            </h3>
+            <p class="project-desc" data-translate="project4_desc">
+              Thesis project comparing YOLO and RT-DETR algorithms for counting
+              motor vehicles. Achieved outstanding student recognition for
+              innovative approach.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">YOLO</span>
+              <span class="tech-badge">RT-DETR</span>
+              <span class="tech-badge">Computer Vision</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_achievement">Achievement:</strong>
+              <span data-translate="project4_achievement"
+                >Outstanding Student Thesis</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image hrms"></div>
+          <div class="project-content">
+            <h3 class="project-title" data-translate="project5_title">
+              HRMS Application
+            </h3>
+            <p class="project-desc" data-translate="project5_desc">
+              Enterprise Human Resource Management System built with Flutter.
+              Features include employee management, attendance tracking, and
+              performance monitoring.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Dart</span>
+              <span class="tech-badge">RESTful API</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_role">Role:</strong>
+              <span data-translate="project5_role"
+                >Mobile Developer at PT Mitra Sinergi Intisolusi</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <h2 class="section-title">
+        <span data-translate="exp_title">Professional</span>
+        <span class="gradient-text" data-translate="exp_word">Experience</span>
+      </h2>
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-translate="exp1_title">
+                Mobile Developer
+              </h3>
+              <div class="timeline-company">PT Mitra Sinergi Intisolusi</div>
+              <div class="timeline-date" data-translate="exp1_date">
+                February 2025 - April 2026 | Contract | Hybrid
+              </div>
+            </div>
+            <ul class="timeline-desc">
+              <li data-translate="exp1_desc1">
+                Building comprehensive HRMS applications using Flutter framework
+              </li>
+              <li data-translate="exp1_desc2">
+                Leading application design updates to align with modern UI/UX
+                standards
+              </li>
+              <li data-translate="exp1_desc3">
+                Implementing innovative features suitable for contemporary
+                business needs
+              </li>
+              <li data-translate="exp1_desc4">
+                Collaborating with cross-functional teams to deliver
+                high-quality mobile solutions
+              </li>
+            </ul>
+            <div class="tech-list">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dart</span>
+              <span class="tech-tag">RESTful API</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-translate="exp2_title">
+                Application Engineer Trainee
+              </h3>
+              <div class="timeline-company">PT PHINCON</div>
+              <div class="timeline-date" data-translate="exp2_date">
+                October 2024 - December 2024 | Apprenticeship | On-site
+              </div>
+            </div>
+            <ul class="timeline-desc">
+              <li data-translate="exp2_desc1">
+                Gained hands-on experience in Linux OS operations and system
+                administration
+              </li>
+              <li data-translate="exp2_desc2">
+                Learned DevOps principles to improve software development and
+                deployment processes
+              </li>
+              <li data-translate="exp2_desc3">
+                Designed and implemented CI/CD pipelines for automation
+                workflows
+              </li>
+              <li data-translate="exp2_desc4">
+                Configured servers for optimal performance and reliability
+              </li>
+              <li data-translate="exp2_desc5">
+                Practiced Oracle Siebel CRM installation and enterprise software
+                configuration
+              </li>
+            </ul>
+            <div class="tech-list">
+              <span class="tech-tag">Linux</span>
+              <span class="tech-tag">DevOps</span>
+              <span class="tech-tag">CI/CD</span>
+              <span class="tech-tag">Oracle Siebel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-translate="exp3_title">
+                Mobile Developer
+              </h3>
+              <div class="timeline-company">
+                PT Citi Asia Internasional (Citiasia Inc.)
+              </div>
+              <div class="timeline-date" data-translate="exp3_date">
+                August 2023 - December 2023 | Internship | On-site
+              </div>
+            </div>
+            <ul class="timeline-desc">
+              <li data-translate="exp3_desc1">
+                Collaborated on rebuilding the Smartnation website with
+                mobile-oriented UI/UX using Vue.js
+              </li>
+              <li data-translate="exp3_desc2">
+                Rebuilt Inidesaku application using Kotlin MVVM architecture for
+                improved usability
+              </li>
+              <li data-translate="exp3_desc3">
+                Performed maintenance on multiple application products to
+                resolve issues
+              </li>
+              <li data-translate="exp3_desc4">
+                Utilized Agile Scrum methodology for effective team
+                collaboration and project delivery
+              </li>
+            </ul>
+            <div class="tech-list">
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">MVVM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title" data-translate="exp4_title">
+                Mobile Development Cohort
+              </h3>
+              <div class="timeline-company">Bangkit Academy</div>
+              <div class="timeline-date" data-translate="exp4_date">
+                February 2023 - July 2023 | Apprenticeship | Remote
+              </div>
+            </div>
+            <ul class="timeline-desc">
+              <li data-translate="exp4_desc1">
+                Learned to build applications with API services using Kotlin
+                MVVM architecture
+              </li>
+              <li data-translate="exp4_desc2">
+                Mastered modern Android development tools: Retrofit, Room
+                Database, Data Binding, Coroutines, Dependency Injection
+              </li>
+              <li data-translate="exp4_desc3">
+                Developed soft skills, hard skills, and English language
+                proficiency
+              </li>
+              <li data-translate="exp4_desc4">
+                Led capstone project team working on Amati Indonesia application
+              </li>
+            </ul>
+            <div class="tech-list">
+              <span class="tech-tag">Kotlin</span>
+              <span class="tech-tag">RESTful API</span>
+              <span class="tech-tag">Room DB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <h2 class="section-title">
+        <span data-translate="contact_title">Get In</span>
+        <span class="gradient-text" data-translate="contact_word">Touch</span>
+      </h2>
+      <p
+        style="
+          color: var(--text-gray);
+          max-width: 600px;
+          margin: 0 auto 3rem;
+          font-size: 1.125rem;
+        "
+        data-translate="contact_subtitle"
+      >
+        I'm currently open to new opportunities and exciting projects. Feel free
+        to reach out if you'd like to collaborate!
+      </p>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div
+                style="font-weight: 600; margin-bottom: 0.25rem"
+                data-translate="contact_email"
+              >
+                Email
+              </div>
+              <a
+                href="mailto:denfdhl5702@gmail.com"
+                style="color: var(--text-gray); text-decoration: none"
+                >denfdhl5702@gmail.com</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div>
+              <div
+                style="font-weight: 600; margin-bottom: 0.25rem"
+                data-translate="contact_phone"
+              >
+                Phone
+              </div>
+              <a
+                href="tel:+6281288925785"
+                style="color: var(--text-gray); text-decoration: none"
+                >+62 812-8892-5785</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div
+                style="font-weight: 600; margin-bottom: 0.25rem"
+                data-translate="contact_location"
+              >
+                Location
+              </div>
+              <div
+                style="color: var(--text-gray)"
+                data-translate="contact_address"
+              >
+                Bekasi City, West Java, Indonesia
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div
+                style="font-weight: 600; margin-bottom: 0.25rem"
+                data-translate="contact_status_label"
+              >
+                Status
+              </div>
+              <div
+                style="color: var(--accent-cyan)"
+                data-translate="contact_status"
+              >
+                Open to Opportunities
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label data-translate="form_name">Your Name</label>
+            <input type="text" required placeholder="John Doe" name="name" />
+          </div>
+          <div class="form-group">
+            <label data-translate="form_email">Your Email</label>
+            <input
+              type="email"
+              required
+              placeholder="john@example.com"
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label data-translate="form_subject">Subject</label>
+            <input
+              type="text"
+              required
+              data-translate="form_subject_placeholder"
+              placeholder="Project Collaboration"
+              name="subject"
+            />
+          </div>
+          <div class="form-group">
+            <label data-translate="form_message">Message</label>
+            <textarea
+              required
+              data-translate="form_message_placeholder"
+              placeholder="Tell me about your project..."
+              name="message"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="width: 100%"
+            data-translate="form_submit"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="social-links">
+        <a
+          href="mailto:denfdhl5702@gmail.com"
+          class="social-icon"
+          title="Email"
+          target="_blank"
+        >
+          <!-- Gmail SVG -->
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="24" fill="#fff" />
+            <path
+              d="M8 14v20a2 2 0 002 2h28a2 2 0 002-2V14a2 2 0 00-2-2H10a2 2 0 00-2 2zm32 0l-16 12L8 14"
+              stroke="#EA4335"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://github.com/denfadhli"
+          class="social-icon"
+          title="GitHub"
+          target="_blank"
+        >
+          <!-- GitHub SVG -->
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="24" fill="#fff" />
+            <path
+              d="M24 8C15.163 8 8 15.163 8 24c0 7.075 4.584 13.065 10.94 15.18.8.147 1.09-.347 1.09-.77 0-.38-.014-1.387-.022-2.722-4.453.967-5.393-2.146-5.393-2.146-.728-1.85-1.777-2.343-1.777-2.343-1.453-.993.11-.973.11-.973 1.607.113 2.454 1.652 2.454 1.652 1.428 2.448 3.747 1.742 4.662 1.332.145-1.034.559-1.742 1.017-2.144-3.555-.404-7.288-1.777-7.288-7.91 0-1.747.624-3.176 1.648-4.294-.165-.404-.715-2.034.157-4.243 0 0 1.345-.43 4.41 1.64a15.36 15.36 0 014.018-.54c1.364.006 2.74.184 4.018.54 3.063-2.07 4.406-1.64 4.406-1.64.874 2.209.324 3.839.16 4.243 1.027 1.118 1.646 2.547 1.646 4.294 0 6.145-3.738 7.502-7.303 7.898.574.494 1.087 1.47 1.087 2.963 0 2.14-.02 3.868-.02 4.393 0 .426.287.923 1.098.767C35.42 37.06 40 31.075 40 24c0-8.837-7.163-16-16-16z"
+              fill="#181717"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://linkedin.com/in/deden-fadhli"
+          class="social-icon"
+          title="LinkedIn"
+          target="_blank"
+        >
+          <!-- LinkedIn SVG -->
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="24" fill="#fff" />
+            <path
+              d="M16 20h4v12h-4V20zm2-6a2 2 0 110-4 2 2 0 010 4zm6 6h4v2.2c.6-1.1 2.1-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V32h-4v-5.2c0-1.2-.1-2.8-1.7-2.8-1.7 0-2 1.3-2 2.7V32h-4V20z"
+              fill="#0A66C2"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/6281288925785"
+          class="social-icon"
+          title="WhatsApp"
+          target="_blank"
+        >
+          <!-- WhatsApp SVG -->
+          <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="24" fill="#fff" />
+            <path
+              d="M24 12c-6.627 0-12 5.373-12 12 0 2.09.57 4.045 1.56 5.73L12 36l6.27-1.56A12 12 0 1024 12zm0 22a10 10 0 01-5.29-1.51l-.38-.23-3.73.93.99-3.63-.24-.37A10 10 0 1124 34zm5.13-7.47c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.41-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.97.95-.97 2.32s.99 2.68 1.13 2.87c.14.18 1.95 2.98 4.73 4.05.66.23 1.18.37 1.58.47.66.17 1.26.15 1.73.09.53-.08 1.65-.67 1.89-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32z"
+              fill="#25D366"
+            />
+          </svg>
+        </a>
+      </div>
+      <div class="footer-text">
+        <p>
+          &copy; 2025 Deden Fadhli.
+          <span data-translate="footer_rights">All rights reserved.</span>
+        </p>
+        <p style="margin-top: 0.5rem" data-translate="footer_built">
+          Built with ❤️ using HTML, CSS & JavaScript
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Translations
+      const translations = {
+        en: {
+          nav_home: "Home",
+          nav_about: "About",
+          nav_skills: "Skills",
+          nav_projects: "Projects",
+          nav_experience: "Experience",
+          nav_contact: "Contact",
+          hero_greeting: "Hi, I'm ",
+          hero_title: "Mobile Developer | Flutter & Kotlin Specialist",
+          hero_subtitle:
+            "Fresh graduate in Informatics Engineering passionate about building innovative mobile applications that make a difference.",
+          hero_btn_projects: "View Projects",
+          hero_btn_contact: "Contact Me",
+          profile_role: "Mobile Developer",
+          about_title: "About",
+          about_me: "Me",
+          about_p1:
+            "I am a fresh graduate from Krisnadwipayana University with a Bachelor's degree in Informatics Engineering (GPA: 3.82/4.00). As an experienced application developer, I specialize in designing and implementing innovative mobile applications and websites.",
+          about_h1: "What I Do",
+          about_p2:
+            "I focus on building cross-platform mobile applications using Flutter and native Android development with Kotlin MVVM architecture. I'm proficient in implementing responsive layouts, integrating RESTful APIs, and optimizing application performance for the best user experience.",
+          about_h2: "My Passion",
+          about_p3:
+            "I'm passionate about continuous learning and exploring new technologies. I thrive in collaborative environments, working with cross-functional teams including designers and developers to deliver seamless end-to-end solutions. My goal is to create applications that are not only functional but also innovative and user-friendly.",
+          about_tech_title: "Technologies I Work With",
+          stat_experience: "Years Experience",
+          stat_projects: "Projects Completed",
+          stat_gpa: "GPA Score",
+          stat_commitment: "Commitment",
+          skills_title: "Skills &",
+          skills_tech: "Technologies",
+          skills_mobile: "Mobile Development",
+          skills_frontend: "Frontend Development",
+          skills_backend: "Backend & Database",
+          skills_tools: "Tools",
+          projects_title: "Featured",
+          projects_word: "Projects",
+          project1_desc:
+            "The Geo Tagging & Carbon Footprint Based Ecotourism Marketplace Platform. An innovative solution for eco-conscious travelers to discover sustainable tourism destinations.",
+          project1_role: "Mobile Developer & Team Leader",
+          project2_desc:
+            "News website containing updates on smart city development. Rebuilt with mobile-first design approach and modern UI/UX principles for better user engagement.",
+          project2_role: "Frontend Developer",
+          project3_desc:
+            "Mobile application with a smart city concept designed to help rural residents carry out digital activities. Built using modern Android architecture patterns.",
+          project3_role: "Mobile Developer",
+          project4_title: "Vehicle Detection System",
+          project4_desc:
+            "Thesis project comparing YOLO and RT-DETR algorithms for counting motor vehicles. Achieved outstanding student recognition for innovative approach.",
+          project4_achievement: "Outstanding Student Thesis",
+          project5_title: "HRMS Application",
+          project5_desc:
+            "Enterprise Human Resource Management System built with Flutter. Features include employee management, attendance tracking, and performance monitoring.",
+          project5_role: "Mobile Developer at PT Mitra Sinergi Intisolusi",
+          project6_title: "Amati Indonesia App",
+          project6_desc:
+            "Capstone project developed during Bangkit Academy program. Led the mobile development team to deliver a comprehensive solution for Indonesian cultural preservation.",
+          project6_role: "Project Leader",
+          project_role: "Role:",
+          project_achievement: "Achievement:",
+          exp_title: "Professional",
+          exp_word: "Experience",
+          exp1_title: "Mobile Developer",
+          exp1_date: "February 2025 - April 2026 | Contract | Hybrid",
+          exp1_desc1:
+            "Building comprehensive HRMS applications using Flutter framework",
+          exp1_desc2:
+            "Leading application design updates to align with modern UI/UX standards",
+          exp1_desc3:
+            "Implementing innovative features suitable for contemporary business needs",
+          exp1_desc4:
+            "Collaborating with cross-functional teams to deliver high-quality mobile solutions",
+          exp2_title: "Application Engineer Trainee",
+          exp2_date: "October 2024 - December 2024 | Apprenticeship | On-site",
+          exp2_desc1:
+            "Gained hands-on experience in Linux OS operations and system administration",
+          exp2_desc2:
+            "Learned DevOps principles to improve software development and deployment processes",
+          exp2_desc3:
+            "Designed and implemented CI/CD pipelines for automation workflows",
+          exp2_desc4:
+            "Configured servers for optimal performance and reliability",
+          exp2_desc5:
+            "Practiced Oracle Siebel CRM installation and enterprise software configuration",
+          exp3_title: "Mobile Developer",
+          exp3_date: "August 2023 - December 2023 | Internship | On-site",
+          exp3_desc1:
+            "Collaborated on rebuilding the Smartnation website with mobile-oriented UI/UX using Vue.js",
+          exp3_desc2:
+            "Rebuilt Inidesaku application using Kotlin MVVM architecture for improved usability",
+          exp3_desc3:
+            "Performed maintenance on multiple application products to resolve issues",
+          exp3_desc4:
+            "Utilized Agile Scrum methodology for effective team collaboration and project delivery",
+          exp4_title: "Mobile Development Cohort",
+          exp4_date: "February 2023 - July 2023 | Apprenticeship | Remote",
+          exp4_desc1:
+            "Learned to build applications with API services using Kotlin MVVM architecture",
+          exp4_desc2:
+            "Mastered modern Android development tools: Retrofit, Room Database, Data Binding, Coroutines, Dependency Injection",
+          exp4_desc3:
+            "Developed soft skills, hard skills, and English language proficiency",
+          exp4_desc4:
+            "Led capstone project team working on Amati Indonesia application",
+          contact_title: "Get In",
+          contact_word: "Touch",
+          contact_subtitle:
+            "I'm currently open to new opportunities and exciting projects. Feel free to reach out if you'd like to collaborate!",
+          contact_email: "Email",
+          contact_phone: "Phone",
+          contact_location: "Location",
+          contact_address: "Bekasi City, West Java, Indonesia",
+          contact_status_label: "Status",
+          contact_status: "Open to Opportunities",
+          form_name: "Your Name",
+          form_email: "Your Email",
+          form_subject: "Subject",
+          form_subject_placeholder: "Project Collaboration",
+          form_message: "Message",
+          form_message_placeholder: "Tell me about your project...",
+          form_submit: "Send Message",
+          footer_rights: "All rights reserved.",
+          footer_built: "Built with ❤️ using HTML, CSS & JavaScript",
+        },
+        id: {
+          nav_home: "Beranda",
+          nav_about: "Tentang",
+          nav_skills: "Keahlian",
+          nav_projects: "Proyek",
+          nav_experience: "Pengalaman",
+          nav_contact: "Kontak",
+          hero_greeting: "Hai, Saya ",
+          hero_title: "Mobile Developer | Spesialis Flutter & Kotlin",
+          hero_subtitle:
+            "Lulusan baru Teknik Informatika yang bersemangat membangun aplikasi mobile inovatif yang memberikan perbedaan.",
+          hero_btn_projects: "Lihat Proyek",
+          hero_btn_contact: "Hubungi Saya",
+          profile_role: "Mobile Developer",
+          about_title: "Tentang",
+          about_me: "Saya",
+          about_p1:
+            "Saya adalah lulusan baru dari Universitas Krisnadwipayana dengan gelar Sarjana Teknik Informatika (IPK: 3.82/4.00). Sebagai pengembang aplikasi berpengalaman, saya spesialis dalam merancang dan mengimplementasikan aplikasi mobile dan website yang inovatif.",
+          about_h1: "Apa yang Saya Lakukan",
+          about_p2:
+            "Saya fokus membangun aplikasi mobile lintas platform menggunakan Flutter dan pengembangan Android native dengan arsitektur Kotlin MVVM. Saya mahir dalam mengimplementasikan layout responsif, mengintegrasikan RESTful API, dan mengoptimalkan performa aplikasi untuk pengalaman pengguna terbaik.",
+          about_h2: "Passion Saya",
+          about_p3:
+            "Saya passionate dalam pembelajaran berkelanjutan dan mengeksplorasi teknologi baru. Saya berkembang dalam lingkungan kolaboratif, bekerja dengan tim lintas fungsi termasuk desainer dan developer untuk memberikan solusi end-to-end yang sempurna. Tujuan saya adalah menciptakan aplikasi yang tidak hanya fungsional tetapi juga inovatif dan user-friendly.",
+          about_tech_title: "Teknologi yang Saya Kuasai",
+          stat_experience: "Tahun Pengalaman",
+          stat_projects: "Proyek Selesai",
+          stat_gpa: "Nilai IPK",
+          stat_commitment: "Komitmen",
+          skills_title: "Keahlian &",
+          skills_tech: "Teknologi",
+          skills_mobile: "Mobile Development",
+          skills_frontend: "Frontend Development",
+          skills_backend: "Backend & Database",
+          skills_tools: "Tools",
+          projects_title: "Proyek",
+          projects_word: "Unggulan",
+          project1_desc:
+            "Platform Marketplace Ekowisata Berbasis Geo Tagging & Jejak Karbon. Solusi inovatif untuk traveler sadar lingkungan menemukan destinasi pariwisata berkelanjutan.",
+          project1_role: "Mobile Developer & Ketua Tim",
+          project2_desc:
+            "Website berita berisi update perkembangan smart city. Dibangun ulang dengan pendekatan desain mobile-first dan prinsip UI/UX modern untuk engagement pengguna lebih baik.",
+          project2_role: "Frontend Developer",
+          project3_desc:
+            "Aplikasi mobile dengan konsep smart city yang dirancang membantu penduduk pedesaan melakukan aktivitas digital. Dibangun menggunakan pola arsitektur Android modern.",
+          project3_role: "Mobile Developer",
+          project4_title: "Sistem Deteksi Kendaraan",
+          project4_desc:
+            "Proyek skripsi membandingkan algoritma YOLO dan RT-DETR untuk menghitung kendaraan bermotor. Meraih pengakuan mahasiswa outstanding untuk pendekatan inovatif.",
+          project4_achievement: "Skripsi Mahasiswa Outstanding",
+          project5_title: "Aplikasi HRMS",
+          project5_desc:
+            "Sistem Manajemen Sumber Daya Manusia Enterprise dibangun dengan Flutter. Fitur mencakup manajemen karyawan, pelacakan kehadiran, dan monitoring kinerja.",
+          project5_role: "Mobile Developer di PT Mitra Sinergi Intisolusi",
+          project6_title: "Aplikasi Amati Indonesia",
+          project6_desc:
+            "Proyek capstone dikembangkan selama program Bangkit Academy. Memimpin tim mobile development untuk memberikan solusi komprehensif pelestarian budaya Indonesia.",
+          project6_role: "Ketua Proyek",
+          project_role: "Peran:",
+          project_achievement: "Pencapaian:",
+          exp_title: "Pengalaman",
+          exp_word: "Profesional",
+          exp1_title: "Mobile Developer",
+          exp1_date: "Februari 2025 - April 2026 | Kontrak | Hybrid",
+          exp1_desc1:
+            "Membangun aplikasi HRMS komprehensif menggunakan framework Flutter",
+          exp1_desc2:
+            "Memimpin pembaruan desain aplikasi agar selaras dengan standar UI/UX modern",
+          exp1_desc3:
+            "Mengimplementasikan fitur inovatif yang sesuai untuk kebutuhan bisnis kontemporer",
+          exp1_desc4:
+            "Berkolaborasi dengan tim lintas fungsi untuk memberikan solusi mobile berkualitas tinggi",
+          exp2_title: "Application Engineer Trainee",
+          exp2_date: "Oktober 2024 - Desember 2024 | Magang | On-site",
+          exp2_desc1:
+            "Mendapatkan pengalaman langsung dalam operasi Linux OS dan administrasi sistem",
+          exp2_desc2:
+            "Mempelajari prinsip DevOps untuk meningkatkan proses pengembangan dan deployment software",
+          exp2_desc3:
+            "Merancang dan mengimplementasikan CI/CD pipeline untuk alur kerja otomasi",
+          exp2_desc4:
+            "Mengkonfigurasi server untuk performa dan reliabilitas optimal",
+          exp2_desc5:
+            "Mempraktikkan instalasi Oracle Siebel CRM dan konfigurasi software enterprise",
+          exp3_title: "Mobile Developer",
+          exp3_date: "Agustus 2023 - Desember 2023 | Magang | On-site",
+          exp3_desc1:
+            "Berkolaborasi membangun ulang website Smartnation dengan UI/UX berorientasi mobile menggunakan Vue.js",
+          exp3_desc2:
+            "Membangun ulang aplikasi Inidesaku menggunakan arsitektur Kotlin MVVM untuk usability lebih baik",
+          exp3_desc3:
+            "Melakukan maintenance pada berbagai produk aplikasi untuk menyelesaikan masalah",
+          exp3_desc4:
+            "Menggunakan metodologi Agile Scrum untuk kolaborasi tim dan pengiriman proyek yang efektif",
+          exp4_title: "Mobile Development Cohort",
+          exp4_date: "Februari 2023 - Juli 2023 | Magang | Remote",
+          exp4_desc1:
+            "Belajar membangun aplikasi dengan layanan API menggunakan arsitektur Kotlin MVVM",
+          exp4_desc2:
+            "Menguasai tools pengembangan Android modern: Retrofit, Room Database, Data Binding, Coroutines, Dependency Injection",
+          exp4_desc3:
+            "Mengembangkan soft skills, hard skills, dan kemampuan bahasa Inggris",
+          exp4_desc4:
+            "Memimpin tim proyek capstone mengerjakan aplikasi Amati Indonesia",
+          contact_title: "Mari",
+          contact_word: "Terhubung",
+          contact_subtitle:
+            "Saya saat ini terbuka untuk peluang baru dan proyek menarik. Jangan ragu untuk menghubungi jika Anda ingin berkolaborasi!",
+          contact_email: "Email",
+          contact_phone: "Telepon",
+          contact_location: "Lokasi",
+          contact_address: "Kota Bekasi, Jawa Barat, Indonesia",
+          contact_status_label: "Status",
+          contact_status: "Terbuka untuk Peluang",
+          form_name: "Nama Anda",
+          form_email: "Email Anda",
+          form_subject: "Subjek",
+          form_subject_placeholder: "Kolaborasi Proyek",
+          form_message: "Pesan",
+          form_message_placeholder: "Ceritakan tentang proyek Anda...",
+          form_submit: "Kirim Pesan",
+          footer_rights: "Hak cipta dilindungi.",
+          footer_built: "Dibuat dengan ❤️ menggunakan HTML, CSS & JavaScript",
+        },
+      };
+
+      let currentLang = "en";
+      let currentTheme = "dark";
+
+      // Toggle Theme
+      function toggleTheme() {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        document.body.setAttribute("data-theme", currentTheme);
+        localStorage.setItem("theme", currentTheme);
+      }
+
+      // Toggle Language
+      function toggleLanguage() {
+        currentLang = currentLang === "en" ? "id" : "en";
+        updateLanguage();
+        localStorage.setItem("language", currentLang);
+      }
+
+      // Update Language
+      function updateLanguage() {
+        const elements = document.querySelectorAll("[data-translate]");
+        elements.forEach((element) => {
+          const key = element.getAttribute("data-translate");
+          if (translations[currentLang][key]) {
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+              element.placeholder = translations[currentLang][key];
+            } else {
+              element.textContent = translations[currentLang][key];
+            }
+          }
+        });
+
+        // Update hero greeting separately to keep the name highlighted
+        const heroGreeting = document.querySelector(
+          '[data-translate="hero_greeting"]'
+        );
+        if (heroGreeting) {
+          heroGreeting.innerHTML =
+            translations[currentLang].hero_greeting +
+            '<span class="gradient-text">Deden Fadhli</span>';
+        }
+
+        // Update language button
+        document.getElementById("langBtn").textContent =
+          currentLang === "en" ? "ID" : "EN";
+      }
+
+      // Load saved preferences
+      function loadPreferences() {
+        const savedTheme = localStorage.getItem("theme");
+        const savedLang = localStorage.getItem("language");
+
+        if (savedTheme) {
+          currentTheme = savedTheme;
+          document.body.setAttribute("data-theme", currentTheme);
+        }
+
+        if (savedLang) {
+          currentLang = savedLang;
+          updateLanguage();
+        }
+      }
+
+      (function () {
+        emailjs.init("LBbxezafTLLXm8aGb");
+      })();
+
+      // Menu functions
+      function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+
+      function closeMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.remove("active");
+      }
+
+      function handleSubmit(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const name = form.querySelector('input[name="name"]').value;
+        const email = form.querySelector('input[name="email"]').value;
+        const subject = form.querySelector('input[name="subject"]').value;
+        const message = form.querySelector('textarea[name="message"]').value;
+
+        // Show loading
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent =
+          currentLang === "en" ? "Sending..." : "Mengirim...";
+
+        // Parameter for EmailJS
+        const templateParams = {
+          name: name,
+          email: email,
+          subject: subject,
+          message: message,
+        };
+
+        // Send email using EmailJS
+        emailjs
+          .send("service_denfdhl5702", "template_ys8sncp", templateParams)
+          .then(
+            function (response) {
+              const successMessage =
+                currentLang === "en"
+                  ? "Thank you for your message! I will get back to you soon."
+                  : "Terima kasih atas pesan Anda! Saya akan segera menghubungi Anda kembali.";
+              alert(successMessage);
+              form.reset();
+            },
+            function (error) {
+              const errorMessage =
+                currentLang === "en"
+                  ? "Sorry, there was an error sending your message. Please try again."
+                  : "Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi.";
+              alert(errorMessage);
+              console.error("EmailJS error:", error);
+            }
+          )
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          });
+      }
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Animate on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections and cards
+      document
+        .querySelectorAll(
+          ".section, .stat-card, .skill-category, .project-card, .timeline-content"
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+
+      // Active nav link on scroll
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const scrollY = window.pageYOffset;
+
+        sections.forEach((section) => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 100;
+          const sectionId = section.getAttribute("id");
+          const navLink = document.querySelector(
+            `.nav-links a[href="#${sectionId}"]`
+          );
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelectorAll(".nav-links a").forEach((link) => {
+              link.style.color = "var(--text-gray)";
+            });
+            if (navLink) {
+              navLink.style.color = "var(--accent-cyan)";
+            }
+          }
+        });
+      });
+
+      // Initialize
+      loadPreferences();
+    </script>
+  </body>
+</html>

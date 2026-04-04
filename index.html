@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,13 +38,19 @@
       }
 
       body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
           sans-serif;
         background: var(--primary-dark);
         color: var(--text-light);
         line-height: 1.6;
         overflow-x: hidden;
-        transition: background 0.3s ease, color 0.3s ease;
+        transition:
+          background 0.3s ease,
+          color 0.3s ease;
       }
 
       .nav {
@@ -154,7 +160,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(
+        background:
+          radial-gradient(
             circle at 20% 50%,
             rgba(0, 217, 255, 0.1),
             transparent 50%
@@ -466,6 +473,42 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .project-image::after {
+        content: "🔍";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+        background: var(--bg-overlay);
+        border: 1px solid var(--border-color);
+        backdrop-filter: blur(5px);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-image:hover::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .project-image.casacart {
+        background-image: url("assets/projects/casa.png");
+      }
+
+      .project-image.chitchatapp {
+        background-image: url("assets/projects/chitchat.png");
       }
 
       .project-image.traveleco {
@@ -746,6 +789,64 @@
         transition: all 0.3s;
       }
 
+      /* Image Modal */
+      .image-modal {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 14, 39, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      [data-theme="light"] .image-modal {
+        background-color: rgba(255, 255, 255, 0.95);
+      }
+
+      .modal-content-img {
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        animation: zoom 0.3s ease;
+        object-fit: contain;
+      }
+
+      @keyframes zoom {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: var(--text-light);
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+        z-index: 2001;
+      }
+
+      .close-modal:hover,
+      .close-modal:focus {
+        color: var(--accent-cyan);
+        text-decoration: none;
+        transform: scale(1.1);
+      }
+
       @media (max-width: 968px) {
         .hero-content {
           grid-template-columns: 1fr;
@@ -998,6 +1099,8 @@
           <div class="tech-list">
             <span class="tech-tag">Flutter</span>
             <span class="tech-tag">Dart</span>
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">Expo</span>
             <span class="tech-tag">Kotlin</span>
             <span class="tech-tag">Java</span>
             <span class="tech-tag">Python</span>
@@ -1073,10 +1176,19 @@
           <div class="skill-item">
             <div class="skill-name">
               <span>Java Android</span>
-              <span>75%</span>
+              <span>70%</span>
             </div>
             <div class="skill-bar">
-              <div class="skill-progress" style="width: 75%"></div>
+              <div class="skill-progress" style="width: 70%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">
+              <span>React Native & Expo</span>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" style="width: 70%"></div>
             </div>
           </div>
         </div>
@@ -1167,6 +1279,53 @@
       </h2>
       <div class="projects-grid">
         <div class="project-card">
+          <div class="project-image casacart"></div>
+          <div class="project-content">
+            <h3 class="project-title">Casa Cart</h3>
+            <p class="project-desc" data-translate="project7_desc">
+              A modern, cross-platform mobile e-commerce application. This
+              project demonstrates a production-ready foundation for an online
+              shopping app, featuring a clean warm-toned UI, full authentication
+              flow, product browsing, cart management, checkout, and
+              multi-language support.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">Expo</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">RESTful API</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_role">Role:</strong>
+              <span data-translate="project7_role">Mobile Developer</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image chitchatapp"></div>
+          <div class="project-content">
+            <h3 class="project-title">Chit Chat App</h3>
+            <p class="project-desc" data-translate="project0_desc">
+              A real-time chat application built using Flutter and Firebase.
+              This project was created as a portfolio piece to demonstrate
+              cross-platform mobile app development with complex features like
+              state management, localization, theming, and Backend-as-a-Service
+              (BaaS) integration.
+            </p>
+            <div class="project-tech">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Dart</span>
+              <span class="tech-badge">Firebase</span>
+            </div>
+            <p style="color: var(--text-gray); font-size: 0.875rem">
+              <strong data-translate="project_role">Role:</strong>
+              <span data-translate="project0_role">Mobile Developer</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="project-card">
           <div class="project-image traveleco"></div>
           <div class="project-content">
             <h3 class="project-title">TravelECO</h3>
@@ -1231,7 +1390,7 @@
           </div>
         </div>
 
-        <div class="project-card">
+        <!-- <div class="project-card">
           <div class="project-image vehicle-detection"></div>
           <div class="project-content">
             <h3 class="project-title" data-translate="project4_title">
@@ -1255,14 +1414,12 @@
               >
             </p>
           </div>
-        </div>
+        </div> -->
 
         <div class="project-card">
           <div class="project-image hrms"></div>
           <div class="project-content">
-            <h3 class="project-title" data-translate="project5_title">
-              HRMS Application
-            </h3>
+            <h3 class="project-title">HRMS App</h3>
             <p class="project-desc" data-translate="project5_desc">
               Enterprise Human Resource Management System built with Flutter.
               Features include employee management, attendance tracking, and
@@ -1656,6 +1813,12 @@
       </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+      <span class="close-modal" onclick="closeImageModal()">&times;</span>
+      <img class="modal-content-img" id="modalImg" alt="Project Preview" />
+    </div>
+
     <script>
       // Translations
       const translations = {
@@ -1667,19 +1830,20 @@
           nav_experience: "Experience",
           nav_contact: "Contact",
           hero_greeting: "Hi, I'm ",
-          hero_title: "Mobile Developer | Flutter & Kotlin Specialist",
+          hero_title:
+            "Mobile Developer | Cross-Platform Development Specialist",
           hero_subtitle:
-            "Fresh graduate in Informatics Engineering passionate about building innovative mobile applications that make a difference.",
+            "A person who is passionate about building innovative mobile applications that make a difference.",
           hero_btn_projects: "View Projects",
           hero_btn_contact: "Contact Me",
           profile_role: "Mobile Developer",
           about_title: "About",
           about_me: "Me",
           about_p1:
-            "I am a fresh graduate from Krisnadwipayana University with a Bachelor's degree in Informatics Engineering (GPA: 3.82/4.00). As an experienced application developer, I specialize in designing and implementing innovative mobile applications and websites.",
+            "I am a graduate of the Krisnadwipayana University with a Bachelor's degree in Informatics Engineering (3.82/4.00). As an experienced application developer, I specialize in designing and implementing innovative mobile applications and websites.",
           about_h1: "What I Do",
           about_p2:
-            "I focus on building cross-platform mobile applications using Flutter and native Android development with Kotlin MVVM architecture. I'm proficient in implementing responsive layouts, integrating RESTful APIs, and optimizing application performance for the best user experience.",
+            "I focus on building cross-platform mobile applications using popular and up-to-date technologies. I'm proficient in implementing responsive layouts, integrating RESTful APIs, and optimizing application performance for the best user experience.",
           about_h2: "My Passion",
           about_p3:
             "I'm passionate about continuous learning and exploring new technologies. I thrive in collaborative environments, working with cross-functional teams including designers and developers to deliver seamless end-to-end solutions. My goal is to create applications that are not only functional but also innovative and user-friendly.",
@@ -1696,9 +1860,12 @@
           skills_tools: "Tools",
           projects_title: "Featured",
           projects_word: "Projects",
+          project0_desc:
+            "A real-time chat application built using Flutter and Firebase. This project was created as a portfolio piece to demonstrate cross-platform mobile app development with complex features like state management, localization, theming, and Backend-as-a-Service (BaaS) integration.",
+          project0_role: "Mobile Developer",
           project1_desc:
             "The Geo Tagging & Carbon Footprint Based Ecotourism Marketplace Platform. An innovative solution for eco-conscious travelers to discover sustainable tourism destinations.",
-          project1_role: "Mobile Developer & Team Leader",
+          project1_role: "Mobile Developer",
           project2_desc:
             "News website containing updates on smart city development. Rebuilt with mobile-first design approach and modern UI/UX principles for better user engagement.",
           project2_role: "Frontend Developer",
@@ -1709,20 +1876,21 @@
           project4_desc:
             "Thesis project comparing YOLO and RT-DETR algorithms for counting motor vehicles. Achieved outstanding student recognition for innovative approach.",
           project4_achievement: "Outstanding Student Thesis",
-          project5_title: "HRMS Application",
           project5_desc:
             "Enterprise Human Resource Management System built with Flutter. Features include employee management, attendance tracking, and performance monitoring.",
           project5_role: "Mobile Developer at PT Mitra Sinergi Intisolusi",
-          project6_title: "Amati Indonesia App",
           project6_desc:
             "Capstone project developed during Bangkit Academy program. Led the mobile development team to deliver a comprehensive solution for Indonesian cultural preservation.",
           project6_role: "Project Leader",
+          project7_desc:
+            "A modern, cross-platform mobile e-commerce application. This project demonstrates a production-ready foundation for an online shopping app, featuring a clean warm-toned UI, full authentication flow, product browsing, cart management, checkout, and multi-language support.",
+          project7_role: "Mobile Developer",
           project_role: "Role:",
           project_achievement: "Achievement:",
           exp_title: "Professional",
           exp_word: "Experience",
           exp1_title: "Mobile Developer",
-          exp1_date: "February 2025 - April 2026 | Contract | Hybrid",
+          exp1_date: "February 2025 - Present | Full-time | Remote",
           exp1_desc1:
             "Building comprehensive HRMS applications using Flutter framework",
           exp1_desc2:
@@ -1791,19 +1959,20 @@
           nav_experience: "Pengalaman",
           nav_contact: "Kontak",
           hero_greeting: "Hai, Saya ",
-          hero_title: "Mobile Developer | Spesialis Flutter & Kotlin",
+          hero_title:
+            "Mobile Developer | Spesialis Pengembangan Lintas Platform",
           hero_subtitle:
-            "Lulusan baru Teknik Informatika yang bersemangat membangun aplikasi mobile inovatif yang memberikan perbedaan.",
+            "Seorang yang bersemangat dalam membangun aplikasi mobile inovatif yang memberikan perbedaan.",
           hero_btn_projects: "Lihat Proyek",
           hero_btn_contact: "Hubungi Saya",
           profile_role: "Mobile Developer",
           about_title: "Tentang",
           about_me: "Saya",
           about_p1:
-            "Saya adalah lulusan baru dari Universitas Krisnadwipayana dengan gelar Sarjana Teknik Informatika (IPK: 3.82/4.00). Sebagai pengembang aplikasi berpengalaman, saya spesialis dalam merancang dan mengimplementasikan aplikasi mobile dan website yang inovatif.",
+            "Saya adalah lulusan dari Universitas Krisnadwipayana dengan gelar Sarjana Teknik Informatika (3.82/4.00). Sebagai pengembang aplikasi berpengalaman, saya spesialis dalam merancang dan mengimplementasikan aplikasi mobile dan website yang inovatif.",
           about_h1: "Apa yang Saya Lakukan",
           about_p2:
-            "Saya fokus membangun aplikasi mobile lintas platform menggunakan Flutter dan pengembangan Android native dengan arsitektur Kotlin MVVM. Saya mahir dalam mengimplementasikan layout responsif, mengintegrasikan RESTful API, dan mengoptimalkan performa aplikasi untuk pengalaman pengguna terbaik.",
+            "Saya fokus dalam membangun aplikasi mobile lintas platform dengan menggunakan teknologi yang populer dan selalu terbarui. Saya mahir dalam mengimplementasikan layout responsif, mengintegrasikan RESTful API, dan mengoptimalkan performa aplikasi untuk pengalaman pengguna terbaik.",
           about_h2: "Passion Saya",
           about_p3:
             "Saya passionate dalam pembelajaran berkelanjutan dan mengeksplorasi teknologi baru. Saya berkembang dalam lingkungan kolaboratif, bekerja dengan tim lintas fungsi termasuk desainer dan developer untuk memberikan solusi end-to-end yang sempurna. Tujuan saya adalah menciptakan aplikasi yang tidak hanya fungsional tetapi juga inovatif dan user-friendly.",
@@ -1820,9 +1989,12 @@
           skills_tools: "Tools",
           projects_title: "Proyek",
           projects_word: "Unggulan",
+          project0_desc:
+            "Aplikasi obrolan waktu nyata yang dibangun menggunakan Flutter dan Firebase. Proyek ini dibuat sebagai bagian dari portofolio untuk mendemonstrasikan pengembangan aplikasi seluler lintas platform dengan fitur-fitur kompleks seperti manajemen state, lokalisasi, pembuatan tema, dan integrasi Backend-as-a-Service (BaaS).",
+          project0_role: "Mobile Developer",
           project1_desc:
             "Platform Marketplace Ekowisata Berbasis Geo Tagging & Jejak Karbon. Solusi inovatif untuk traveler sadar lingkungan menemukan destinasi pariwisata berkelanjutan.",
-          project1_role: "Mobile Developer & Ketua Tim",
+          project1_role: "Mobile Developer",
           project2_desc:
             "Website berita berisi update perkembangan smart city. Dibangun ulang dengan pendekatan desain mobile-first dan prinsip UI/UX modern untuk engagement pengguna lebih baik.",
           project2_role: "Frontend Developer",
@@ -1833,20 +2005,21 @@
           project4_desc:
             "Proyek skripsi membandingkan algoritma YOLO dan RT-DETR untuk menghitung kendaraan bermotor. Meraih pengakuan mahasiswa outstanding untuk pendekatan inovatif.",
           project4_achievement: "Skripsi Mahasiswa Outstanding",
-          project5_title: "Aplikasi HRMS",
           project5_desc:
             "Sistem Manajemen Sumber Daya Manusia Enterprise dibangun dengan Flutter. Fitur mencakup manajemen karyawan, pelacakan kehadiran, dan monitoring kinerja.",
           project5_role: "Mobile Developer di PT Mitra Sinergi Intisolusi",
-          project6_title: "Aplikasi Amati Indonesia",
           project6_desc:
             "Proyek capstone dikembangkan selama program Bangkit Academy. Memimpin tim mobile development untuk memberikan solusi komprehensif pelestarian budaya Indonesia.",
           project6_role: "Ketua Proyek",
+          project7_desc:
+            "Aplikasi mobile e-commerce modern, cross-platform yang dibangun dengan React Native, Expo, dan TypeScript. Proyek ini mendemonstrasikan fondasi yang siap produksi untuk aplikasi belanja online, menampilkan UI bernuansa hangat yang bersih, alur autentikasi lengkap, penjelajahan produk, manajemen keranjang, checkout, dan dukungan multi-bahasa.",
+          project7_role: "Mobile Developer",
           project_role: "Peran:",
           project_achievement: "Pencapaian:",
           exp_title: "Pengalaman",
           exp_word: "Profesional",
           exp1_title: "Mobile Developer",
-          exp1_date: "Februari 2025 - April 2026 | Kontrak | Hybrid",
+          exp1_date: "Februari 2025 - Sekarang | Penuh Waktu | Remote",
           exp1_desc1:
             "Membangun aplikasi HRMS komprehensif menggunakan framework Flutter",
           exp1_desc2:
@@ -1942,7 +2115,7 @@
 
         // Update hero greeting separately to keep the name highlighted
         const heroGreeting = document.querySelector(
-          '[data-translate="hero_greeting"]'
+          '[data-translate="hero_greeting"]',
         );
         if (heroGreeting) {
           heroGreeting.innerHTML =
@@ -2029,7 +2202,7 @@
                   : "Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi.";
               alert(errorMessage);
               console.error("EmailJS error:", error);
-            }
+            },
           )
           .finally(function () {
             submitBtn.disabled = false;
@@ -2069,7 +2242,7 @@
       // Observe all sections and cards
       document
         .querySelectorAll(
-          ".section, .stat-card, .skill-category, .project-card, .timeline-content"
+          ".section, .stat-card, .skill-category, .project-card, .timeline-content",
         )
         .forEach((el) => {
           el.style.opacity = "0";
@@ -2088,7 +2261,7 @@
           const sectionTop = section.offsetTop - 100;
           const sectionId = section.getAttribute("id");
           const navLink = document.querySelector(
-            `.nav-links a[href="#${sectionId}"]`
+            `.nav-links a[href="#${sectionId}"]`,
           );
 
           if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -2100,6 +2273,42 @@
             }
           }
         });
+      });
+
+      // Image Modal Logic
+      const imageModal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+
+      document.querySelectorAll(".project-image").forEach((item) => {
+        item.addEventListener("click", function () {
+          // Extract background-image URL
+          const style = window.getComputedStyle(item, false);
+          const bgImg = style.backgroundImage;
+          const match = bgImg.match(/url\(['"]?(.*?)['"]?\)/i);
+
+          if (match && match[1]) {
+            modalImg.src = match[1];
+            imageModal.style.display = "flex";
+          }
+        });
+      });
+
+      function closeImageModal() {
+        imageModal.style.display = "none";
+      }
+
+      // Close modal on click outside
+      window.addEventListener("click", function (event) {
+        if (event.target == imageModal) {
+          closeImageModal();
+        }
+      });
+
+      // Close modal on escape key
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && imageModal.style.display === "flex") {
+          closeImageModal();
+        }
       });
 
       // Initialize

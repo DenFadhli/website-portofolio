@@ -922,6 +922,27 @@ a.project-badge:focus-visible {
   font-size: 0.92rem;
 }
 
+.skills-aux-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skills-aux-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1.2rem;
+}
+
+.skills-aux-card h3 {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
 .timeline {
   position: relative;
   display: grid;
@@ -1428,7 +1449,8 @@ a.project-badge:focus-visible {
 
   .hero-grid,
   .page-hero-grid,
-  .contact-layout {
+  .contact-layout,
+  .skills-aux-grid {
     grid-template-columns: 1fr;
   }
 

@@ -7,27 +7,30 @@ window.portfolioData = {
       nav_projects: "Projects",
       nav_skills: "Expertise",
       nav_experience: "Experience",
+      nav_education: "Education",
       nav_contact: "Contact",
       availability: "Open to mobile roles and projects",
-      hero_role: "Mobile Developer | Cross-Platform Development Specialist",
+      hero_role:
+        "Mobile Application Developer | Cross-Platform & Native Android",
       hero_subtitle:
-        "I build reliable mobile applications with polished interfaces, clean integrations, and practical product thinking across Flutter and React Native.",
+        "Results-driven Mobile Application Developer with hands-on experience building, optimizing, and releasing cross-platform (Flutter & React Native) and native Android (Kotlin) applications, backed by CI/CD automation and security testing.",
       hero_btn_projects: "See All Projects",
       hero_btn_contact: "Contact Me",
-      profile_location: "Bekasi, Indonesia",
-      profile_focus: "Flutter, React Native, Kotlin, and Java",
+      profile_location: "Bekasi City, West Java, Indonesia",
+      profile_focus: "Flutter, React Native, Kotlin, Dart, Java",
+      profile_degree: "B.S. Informatics Engineering (Honors, GPA 3.82)",
       profile_status: "Open to opportunities",
       stat_experience: "Years Experience",
       stat_projects: "Projects Completed",
-      stat_gpa: "GPA Score",
+      stat_gpa: "GPA (Honors)",
       proof_projects: "Curated portfolio projects",
-      proof_stacks: "Mobile stacks practiced",
-      proof_integrations: "Firebase and RESTful API work",
-      proof_language: "Bilingual product mindset",
+      proof_stacks: "Mobile & native stacks practiced",
+      proof_integrations: "Firebase, REST APIs & CI/CD",
+      proof_language: "Bilingual (ID Native / EN Working)",
       projects_kicker: "Featured work",
       projects_heading: "Selected projects from a wider portfolio gallery.",
       projects_subtitle:
-        "The homepage stays concise while the dedicated gallery shows the full range of mobile, web, enterprise, and archive work.",
+        "The homepage stays concise while the dedicated gallery shows the full range of mobile, web, enterprise, and research work.",
       projects_teaser_cta: "See All Projects",
       projects_teaser_note: "Three highlights from the broader portfolio.",
       preview_label: "Preview",
@@ -35,66 +38,86 @@ window.portfolioData = {
       skills_kicker: "Expertise and toolkit",
       skills_heading: "Practical skills for shipping polished mobile products.",
       skills_subtitle:
-        "Grouped by how the work actually happens: app development, interface delivery, data integration, and collaborative tooling.",
-      skills_mobile: "Mobile Development",
+        "Grouped by technical practice: mobile development & architecture, web frontend, backend & database, tools & security, and professional soft skills.",
+      skills_mobile: "Mobile Development & Architecture",
       skills_mobile_desc:
-        "Cross-platform and native app delivery with responsive, maintainable mobile interfaces.",
-      skills_frontend: "Frontend Development",
+        "Cross-platform and native mobile delivery using Flutter, React Native, and Kotlin MVVM with responsive UI and modern state management.",
+      skills_frontend: "Frontend & Web Development",
       skills_frontend_desc:
-        "Mobile-first web interfaces with clear layout systems and recruiter-friendly presentation.",
-      skills_backend: "Backend & Data",
+        "Mobile-first, responsive web interfaces and smart city platforms using Vue.js, TypeScript, and modern design principles.",
+      skills_backend: "Backend & Database",
       skills_backend_desc:
-        "API integration, Firebase-backed features, and data-aware mobile workflows.",
-      skills_tools: "Tools & Workflow",
+        "RESTful API integration, Firebase BaaS, relational databases (MySQL, PostgreSQL), and local caching systems.",
+      skills_tools: "Tools, DevOps & Security",
       skills_tools_desc:
-        "Team-ready development habits across design collaboration, debugging, and delivery.",
+        "CI/CD automation, server provisioning, penetration testing, MikroTik network hardening, and collaborative engineering workflows.",
+      skills_soft: "Soft Skills",
+      skills_languages: "Languages",
       exp_kicker: "Professional experience",
       exp_heading:
         "Building across product teams, mobile apps, and delivery systems.",
       exp_subtitle:
-        "A timeline of roles that shaped my mobile development, collaboration, and engineering fundamentals.",
+        "A timeline of roles that shaped my mobile development, architecture, security, and engineering fundamentals.",
       exp1_title: "Mobile Developer",
-      exp1_date: "February 2025 - Present | Full-time | Hybrid",
+      exp1_company: "PT. Mitra Sinergi Intisolusi",
+      exp1_date: "February 2025 - Present | West Jakarta | Full-time | Hybrid",
       exp1_desc1:
-        "Building comprehensive HRMS applications using Flutter framework.",
+        "Architected and developed comprehensive HRMS mobile applications using the Flutter framework and Dart, streamlining daily employee self-service workflows.",
       exp1_desc2:
-        "Leading application design updates to align with modern UI/UX standards.",
+        "Spearheaded UI/UX modernization, translating Figma designs into responsive, reusable custom widgets aligned with modern mobile design standards.",
       exp1_desc3:
-        "Implementing innovative features suitable for contemporary business needs.",
+        "Optimized mobile application performance by refactoring state management, minimizing unnecessary widget rebuilds, and improving API response handling.",
       exp1_desc4:
-        "Collaborating with cross-functional teams to deliver high-quality mobile solutions.",
+        "Collaborated with cross-functional teams (UI/UX designers, backend engineers, and QA) to deliver end-to-end mobile features tailored to business requirements.",
+      exp1_desc5:
+        "Additional Role – Security & Network Infrastructure (May 2026 – Present): Conducted security reviews and penetration testing on internal networks and web/API services, alongside hardening local network infrastructure using MikroTik, ensuring secure data transmission for company applications.",
       exp2_title: "Application Engineer Trainee",
-      exp2_date: "October 2024 - December 2024 | Apprenticeship | On-site",
+      exp2_company: "PT. Phintraco Consulting (PhinCon)",
+      exp2_date: "October 2024 - December 2024 | South Jakarta | Apprenticeship | On-site",
       exp2_desc1:
-        "Gained hands-on experience in Linux OS operations and system administration.",
+        "Designed and implemented automated CI/CD pipelines to accelerate software build, testing, and deployment workflows across development and staging environments.",
       exp2_desc2:
-        "Learned DevOps principles to improve software development and deployment processes.",
+        "Provisioned and configured server environments to ensure high availability, security compliance, and smooth backend integration for client applications.",
       exp2_desc3:
-        "Designed and implemented CI/CD pipelines for automation workflows.",
-      exp2_desc4:
-        "Configured servers for optimal performance and reliability.",
-      exp2_desc5:
-        "Practiced Oracle Siebel CRM installation and enterprise software configuration.",
+        "Applied modern DevOps methodologies to streamline collaboration between application development and infrastructure operations.",
       exp3_title: "Mobile Developer",
-      exp3_date: "August 2023 - December 2023 | Internship | On-site",
+      exp3_company: "PT. Citi Asia Internasional (Citiasia Inc.)",
+      exp3_date: "August 2023 - December 2023 | East Jakarta | Internship | On-site",
       exp3_desc1:
-        "Collaborated on rebuilding the Smartnation website with mobile-oriented UI/UX using Vue.js.",
+        "Rebuilt the IniDesaku smart-city mobile application using Kotlin (MVVM architecture), revamping user flows to improve accessibility and usability for rural communities.",
       exp3_desc2:
-        "Rebuilt Inidesaku application using Kotlin MVVM architecture for improved usability.",
+        "Developed mobile-first, responsive web interfaces for the SmartNation platform using Vue.js, ensuring consistent cross-device user experiences.",
       exp3_desc3:
-        "Performed maintenance on multiple application products to resolve issues.",
-      exp3_desc4:
-        "Used Agile Scrum methodology for team collaboration and project delivery.",
+        "Executed iterative product development within an Agile Scrum framework, participating in sprint planning, daily stand-ups, and code reviews.",
       exp4_title: "Mobile Development Cohort",
-      exp4_date: "February 2023 - July 2023 | Apprenticeship | Remote",
+      exp4_company: "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+      exp4_date: "February 2023 - July 2023 | Indonesia | Apprenticeship | Remote",
       exp4_desc1:
-        "Learned to build applications with API services using Kotlin MVVM architecture.",
+        "Developed native Android applications using Kotlin MVVM, integrating Retrofit for REST APIs, Room Database for local caching, Coroutines for asynchronous tasks, Data Binding, and Dependency Injection.",
       exp4_desc2:
-        "Practiced Retrofit, Room Database, Data Binding, Coroutines, and Dependency Injection.",
+        "Served as Project Leader for the Capstone Project, leading a cross-functional team to build and deliver a mobile application solution partnered with Amati Indonesia.",
       exp4_desc3:
-        "Developed soft skills, hard skills, and English language proficiency.",
-      exp4_desc4:
-        "Led a capstone project team working on the Amati Indonesia application.",
+        "Completed intensive technical and professional readiness training, covering Android engineering best practices, project management, and business English communication.",
+      edu_kicker: "Education & Organization",
+      edu_heading: "Academic background, research thesis, and leadership.",
+      edu_subtitle:
+        "A degree in Informatics Engineering, computer vision research, and active student organization participation.",
+      edu1_degree: "Bachelor's Degree in Informatics Engineering",
+      edu1_school: "Krisnadwipayana University",
+      edu1_date: "July 2020 - August 2024 | GPA 3.82 / 4.00 (Graduated with Honors)",
+      edu1_desc1:
+        "Thesis (Outstanding Student): Comparison of You Only Look Once (YOLO) and Real-Time Detection Transformer (RT-DETR) Algorithms for Counting the Number of Motor Vehicles.",
+      edu1_desc2:
+        "Relevant Coursework: Mobile Programming, Software Engineering, Machine Learning, OOP, Database System.",
+      edu1_desc3:
+        "Activity: Actively participated in academic events, including technology webinars and skills training workshops.",
+      edu2_role: "Staff Member",
+      edu2_org: "Himatif Unkris (Informatics Engineering Student Association)",
+      edu2_date: "July 2021 - December 2022",
+      edu2_desc1:
+        "Served as a committee member organizing technology webinars and faculty special events.",
+      edu2_desc2:
+        "Volunteered in social and community programs supporting residents around the university environment.",
       contact_kicker: "Contact",
       contact_heading:
         "Let us talk about mobile products, roles, or collaboration.",
@@ -136,7 +159,7 @@ window.portfolioData = {
       projects_page_title:
         "A dedicated page for the full portfolio project collection.",
       projects_page_subtitle:
-        "This gallery combines featured work with archive placeholders so the portfolio can keep growing without making the homepage feel crowded.",
+        "This gallery showcases the full range of mobile, web, enterprise, and research work.",
       projects_page_home: "Back to Home",
       projects_page_contact: "Start a Conversation",
       projects_page_summary_all: "Total Projects",
@@ -144,14 +167,14 @@ window.portfolioData = {
       projects_page_summary_placeholder: "Archive Placeholders",
       projects_page_section_kicker: "All projects",
       projects_page_section_heading:
-        "Some projects across mobile apps, web work, enterprise delivery, and archive entries.",
+        "Curated projects across cross-platform mobile apps, native Android, smart city web, and research.",
       projects_page_section_subtitle:
-        "Detailed cards are used where public-ready copy already exists, while archive cards stay honest about work that is still being prepared for publication.",
-      projects_page_point_one: "6 portfolio entries curated into one gallery.",
+        "Detailed project cards highlighting architectures, roles, technology stacks, and live application links.",
+      projects_page_point_one: "7 portfolio entries curated into one gallery.",
       projects_page_point_two:
-        "Focused on mobile apps, web rebuilds, and product delivery.",
+        "Focused on Flutter, React Native, Kotlin MVVM, and Vue.js.",
       projects_page_point_three:
-        "Archive items stay visible while public-ready write-ups are prepared.",
+        "Includes production releases, client work, and thesis research.",
       projects_page_cta_title: "Want more context behind a project?",
       projects_page_cta_body:
         "I can walk through implementation choices, architecture, product tradeoffs, and design decisions in a follow-up conversation.",
@@ -165,95 +188,118 @@ window.portfolioData = {
       nav_projects: "Proyek",
       nav_skills: "Keahlian",
       nav_experience: "Pengalaman",
+      nav_education: "Pendidikan",
       nav_contact: "Kontak",
       availability: "Terbuka untuk role mobile dan proyek",
-      hero_role: "Mobile Developer | Spesialis Pengembangan Lintas Platform",
+      hero_role:
+        "Mobile Application Developer | Spesialis Lintas Platform & Android Native",
       hero_subtitle:
-        "Saya membangun aplikasi mobile yang andal dengan antarmuka rapi, integrasi bersih, dan pemikiran produk yang praktis menggunakan Flutter dan React Native.",
+        "Pengembang Aplikasi Mobile yang berorientasi hasil dengan pengalaman langsung dalam membangun, mengoptimalkan, dan merilis aplikasi lintas platform (Flutter & React Native) serta native Android (Kotlin), didukung otomasi CI/CD dan pengujian keamanan.",
       hero_btn_projects: "Lihat Semua Proyek",
       hero_btn_contact: "Hubungi Saya",
-      profile_location: "Bekasi, Indonesia",
-      profile_focus: "Flutter, React Native, Kotlin, dan Java",
+      profile_location: "Kota Bekasi, Jawa Barat, Indonesia",
+      profile_focus: "Flutter, React Native, Kotlin, Dart, Java",
+      profile_degree: "S1 Teknik Informatika (Lulusan Berpredikat, IPK 3.82)",
       profile_status: "Terbuka untuk peluang",
       stat_experience: "Tahun Pengalaman",
       stat_projects: "Proyek Selesai",
-      stat_gpa: "Nilai IPK",
+      stat_gpa: "Nilai IPK (Honors)",
       proof_projects: "Proyek portofolio terkurasi",
-      proof_stacks: "Stack mobile yang dikuasai",
-      proof_integrations: "Pekerjaan Firebase dan RESTful API",
-      proof_language: "Mindset produk bilingual",
+      proof_stacks: "Stack mobile & native yang dikuasai",
+      proof_integrations: "Firebase, REST API & CI/CD",
+      proof_language: "Bilingual (ID Native / EN Working)",
       projects_kicker: "Karya pilihan",
       projects_heading: "Proyek unggulan dari galeri portofolio yang lebih luas.",
       projects_subtitle:
-        "Homepage tetap ringkas, sementara halaman khusus menampilkan jangkauan penuh karya mobile, web, enterprise, dan archive.",
+        "Homepage tetap ringkas, sementara galeri khusus menampilkan jangkauan penuh karya mobile, web, enterprise, dan riset.",
       projects_teaser_cta: "Lihat Semua Proyek",
       projects_teaser_note: "Tiga highlight dari keseluruhan portofolio.",
       preview_label: "Preview",
       project_role: "Peran:",
       skills_kicker: "Keahlian dan toolkit",
       skills_heading:
-        "Keahlian praktis untuk mengirim produk mobile yang rapi.",
+        "Keahlian praktis untuk mengirim produk mobile yang andal dan rapi.",
       skills_subtitle:
-        "Dikelompokkan sesuai alur kerja nyata: pengembangan app, delivery interface, integrasi data, dan tooling kolaboratif.",
-      skills_mobile: "Mobile Development",
+        "Dikelompokkan sesuai praktik teknis: pengembangan & arsitektur mobile, web frontend, backend & database, tools & keamanan, serta soft skills profesional.",
+      skills_mobile: "Pengembangan & Arsitektur Mobile",
       skills_mobile_desc:
-        "Delivery aplikasi cross-platform dan native dengan interface mobile yang responsif dan mudah dirawat.",
-      skills_frontend: "Frontend Development",
+        "Pengembangan aplikasi lintas platform dan native menggunakan Flutter, React Native, dan Kotlin MVVM dengan UI responsif dan state management modern.",
+      skills_frontend: "Pengembangan Frontend & Web",
       skills_frontend_desc:
-        "Interface web mobile-first dengan sistem layout jelas dan presentasi yang recruiter-friendly.",
-      skills_backend: "Backend & Data",
+        "Antarmuka web responsif mobile-first dan platform smart city menggunakan Vue.js, TypeScript, dan prinsip desain modern.",
+      skills_backend: "Backend & Basis Data",
       skills_backend_desc:
-        "Integrasi API, fitur berbasis Firebase, dan workflow mobile yang sadar data.",
-      skills_tools: "Tools & Workflow",
+        "Integrasi RESTful API, Firebase BaaS, basis data relasional (MySQL, PostgreSQL), serta sistem caching lokal.",
+      skills_tools: "Tools, DevOps & Keamanan",
       skills_tools_desc:
-        "Kebiasaan development siap tim untuk kolaborasi desain, debugging, dan delivery.",
+        "Otomasi CI/CD, provisi server, penetration testing, hardening jaringan MikroTik, dan alur kerja kolaborasi developer.",
+      skills_soft: "Soft Skills",
+      skills_languages: "Bahasa",
       exp_kicker: "Pengalaman profesional",
       exp_heading:
         "Berkembang di tim produk, aplikasi mobile, dan sistem delivery.",
       exp_subtitle:
-        "Timeline role yang membentuk kemampuan mobile development, kolaborasi, dan fundamental engineering saya.",
+        "Timeline role yang membentuk kemampuan pengembangan mobile, arsitektur, keamanan, dan fundamental engineering saya.",
       exp1_title: "Mobile Developer",
-      exp1_date: "Februari 2025 - Sekarang | Penuh Waktu | Hybrid",
+      exp1_company: "PT. Mitra Sinergi Intisolusi",
+      exp1_date: "Februari 2025 - Sekarang | Jakarta Barat | Penuh Waktu | Hybrid",
       exp1_desc1:
-        "Membangun aplikasi HRMS komprehensif menggunakan framework Flutter.",
+        "Merancang arsitektur dan mengembangkan aplikasi mobile HRMS komprehensif menggunakan framework Flutter dan Dart, menyederhanakan alur kerja mandiri karyawan sehari-hari.",
       exp1_desc2:
-        "Memimpin pembaruan desain aplikasi agar selaras dengan standar UI/UX modern.",
+        "Memimpin modernisasi UI/UX, menerjemahkan desain Figma menjadi widget kustom yang responsif dan reusable sesuai standar desain mobile modern.",
       exp1_desc3:
-        "Mengimplementasikan fitur inovatif yang sesuai untuk kebutuhan bisnis kontemporer.",
+        "Mengoptimalkan performa aplikasi mobile dengan refactoring state management, meminimalkan rebuild widget yang tidak perlu, dan meningkatkan penanganan respons API.",
       exp1_desc4:
-        "Berkolaborasi dengan tim lintas fungsi untuk memberikan solusi mobile berkualitas tinggi.",
+        "Berkolaborasi dengan tim lintas fungsi (desainer UI/UX, backend engineer, dan QA) untuk menghasilkan fitur mobile end-to-end yang disesuaikan dengan kebutuhan bisnis.",
+      exp1_desc5:
+        "Peran Tambahan – Infrastruktur Keamanan & Jaringan (Mei 2026 – Sekarang): Melakukan tinjauan keamanan dan penetration testing pada jaringan internal serta layanan web/API, sekaligus hardening infrastruktur jaringan lokal menggunakan MikroTik untuk menjamin transmisi data aplikasi perusahaan yang aman.",
       exp2_title: "Application Engineer Trainee",
-      exp2_date: "Oktober 2024 - Desember 2024 | Magang | On-site",
+      exp2_company: "PT. Phintraco Consulting (PhinCon)",
+      exp2_date: "Oktober 2024 - Desember 2024 | Jakarta Selatan | Magang | On-site",
       exp2_desc1:
-        "Mendapatkan pengalaman langsung dalam operasi Linux OS dan administrasi sistem.",
+        "Merancang dan mengimplementasikan CI/CD pipeline terotomasi untuk mempercepat alur kerja build, pengujian, dan deployment software di lingkungan development dan staging.",
       exp2_desc2:
-        "Mempelajari prinsip DevOps untuk meningkatkan proses pengembangan dan deployment software.",
+        "Menyediakan dan mengonfigurasi lingkungan server untuk memastikan ketersediaan tinggi, kepatuhan keamanan, dan integrasi backend yang lancar untuk aplikasi klien.",
       exp2_desc3:
-        "Merancang dan mengimplementasikan CI/CD pipeline untuk alur kerja otomasi.",
-      exp2_desc4:
-        "Mengkonfigurasi server untuk performa dan reliabilitas optimal.",
-      exp2_desc5:
-        "Mempraktikkan instalasi Oracle Siebel CRM dan konfigurasi software enterprise.",
+        "Menerapkan metodologi DevOps modern untuk merampingkan kolaborasi antara pengembangan aplikasi dan operasi infrastruktur.",
       exp3_title: "Mobile Developer",
-      exp3_date: "Agustus 2023 - Desember 2023 | Magang | On-site",
+      exp3_company: "PT. Citi Asia Internasional (Citiasia Inc.)",
+      exp3_date: "Agustus 2023 - Desember 2023 | Jakarta Timur | Magang | On-site",
       exp3_desc1:
-        "Berkolaborasi membangun ulang website Smartnation dengan UI/UX berorientasi mobile menggunakan Vue.js.",
+        "Membangun ulang aplikasi mobile smart-city IniDesaku menggunakan Kotlin (arsitektur MVVM), memperbarui alur pengguna untuk meningkatkan aksesibilitas dan kemudahan penggunaan bagi masyarakat desa.",
       exp3_desc2:
-        "Membangun ulang aplikasi Inidesaku menggunakan arsitektur Kotlin MVVM untuk usability lebih baik.",
+        "Mengembangkan antarmuka web responsif mobile-first untuk platform SmartNation menggunakan Vue.js, memastikan pengalaman pengguna lintas perangkat yang konsisten.",
       exp3_desc3:
-        "Melakukan maintenance pada berbagai produk aplikasi untuk menyelesaikan masalah.",
-      exp3_desc4:
-        "Menggunakan metodologi Agile Scrum untuk kolaborasi tim dan pengiriman proyek.",
+        "Menjalankan pengembangan produk secara iteratif dalam kerangka Agile Scrum, berpartisipasi dalam sprint planning, daily stand-up, dan code review.",
       exp4_title: "Mobile Development Cohort",
-      exp4_date: "Februari 2023 - Juli 2023 | Magang | Remote",
+      exp4_company: "Bangkit Academy led by Google, Tokopedia, Gojek, & Traveloka",
+      exp4_date: "Februari 2023 - Juli 2023 | Indonesia | Magang | Remote",
       exp4_desc1:
-        "Belajar membangun aplikasi dengan layanan API menggunakan arsitektur Kotlin MVVM.",
+        "Mengembangkan aplikasi native Android menggunakan Kotlin MVVM, mengintegrasikan Retrofit untuk REST API, Room Database untuk caching lokal, Coroutine untuk tugas asinkron, Data Binding, dan Dependency Injection.",
       exp4_desc2:
-        "Mempraktikkan Retrofit, Room Database, Data Binding, Coroutines, dan Dependency Injection.",
+        "Menjabat sebagai Project Leader untuk Proyek Capstone, memimpin tim lintas fungsi untuk membangun dan merilis solusi aplikasi mobile yang bermitra dengan Amati Indonesia.",
       exp4_desc3:
-        "Mengembangkan soft skills, hard skills, dan kemampuan bahasa Inggris.",
-      exp4_desc4:
-        "Memimpin tim proyek capstone untuk aplikasi Amati Indonesia.",
+        "Menyelesaikan pelatihan kesiapan teknis dan profesional intensif, mencakup best practice rekayasa Android, manajemen proyek, dan komunikasi bahasa Inggris bisnis.",
+      edu_kicker: "Pendidikan & Organisasi",
+      edu_heading: "Latar belakang akademik, riset skripsi, dan kepemimpinan.",
+      edu_subtitle:
+        "Pendidikan gelar Teknik Informatika, riset computer vision, dan partisipasi aktif dalam organisasi mahasiswa.",
+      edu1_degree: "Sarjana Teknik Informatika (S1)",
+      edu1_school: "Universitas Krisnadwipayana",
+      edu1_date: "Juli 2020 - Agustus 2024 | IPK 3.82 / 4.00 (Lulusan Berpredikat)",
+      edu1_desc1:
+        "Skripsi (Mahasiswa Berprestasi): Perbandingan Algoritma You Only Look Once (YOLO) dan Real-Time Detection Transformer (RT-DETR) untuk Menghitung Jumlah Kendaraan Bermotor.",
+      edu1_desc2:
+        "Mata Kuliah Relevan: Mobile Programming, Software Engineering, Machine Learning, OOP, Database System.",
+      edu1_desc3:
+        "Aktivitas: Berpartisipasi aktif dalam kegiatan akademik, seminar web teknologi, dan lokakarya pelatihan keterampilan.",
+      edu2_role: "Staf Anggota",
+      edu2_org: "Himatif Unkris (Himpunan Mahasiswa Teknik Informatika)",
+      edu2_date: "Juli 2021 - Desember 2022",
+      edu2_desc1:
+        "Kepanitiaan dalam menyelenggarakan webinar teknologi dan acara khusus di tingkat fakultas.",
+      edu2_desc2:
+        "Menjadi relawan dalam kegiatan sosial untuk membantu warga di sekitar lingkungan universitas.",
       contact_kicker: "Kontak",
       contact_heading: "Mari bahas produk mobile, role, atau kolaborasi.",
       contact_subtitle:
@@ -294,7 +340,7 @@ window.portfolioData = {
       projects_page_title:
         "Halaman khusus untuk seluruh koleksi proyek portofolio.",
       projects_page_subtitle:
-        "Galeri ini menggabungkan karya unggulan dan placeholder archive agar portofolio bisa terus berkembang tanpa membuat homepage terlalu padat.",
+        "Galeri ini menampilkan jangkauan penuh karya mobile, web, enterprise, dan riset.",
       projects_page_home: "Kembali ke Beranda",
       projects_page_contact: "Mulai Percakapan",
       projects_page_summary_all: "Total Proyek",
@@ -302,15 +348,15 @@ window.portfolioData = {
       projects_page_summary_placeholder: "Placeholder Archive",
       projects_page_section_kicker: "Semua proyek",
       projects_page_section_heading:
-        "Beberapa proyek lintas aplikasi mobile, web, delivery enterprise, dan arsip karya.",
+        "Proyek terkurasi lintas aplikasi mobile lintas platform, native Android, web smart city, dan riset.",
       projects_page_section_subtitle:
-        "Kartu detail penuh dipakai untuk proyek yang copy publiknya sudah siap, sementara kartu archive tetap jujur untuk karya yang masih disiapkan publikasinya.",
+        "Kartu proyek detail menonjolkan arsitektur, peran, stack teknologi, serta tautan aplikasi langsung.",
       projects_page_point_one:
-        "6 entri portofolio yang dikurasi dalam satu galeri.",
+        "7 entri portofolio yang dikurasi dalam satu galeri.",
       projects_page_point_two:
-        "Berfokus pada aplikasi mobile, rebuild web, dan delivery produk.",
+        "Berfokus pada Flutter, React Native, Kotlin MVVM, dan Vue.js.",
       projects_page_point_three:
-        "Item archive tetap tampil selagi write-up siap publik sedang disiapkan.",
+        "Mencakup rilis produksi, proyek klien, dan riset skripsi.",
       projects_page_cta_title:
         "Ingin membahas konteks lebih dalam dari sebuah proyek?",
       projects_page_cta_body:
@@ -329,16 +375,16 @@ window.portfolioData = {
         id: "Preview aplikasi mobile Casa Cart",
       },
       highlight: {
-        en: "E-commerce foundation",
-        id: "Fondasi e-commerce",
+        en: "E-Commerce Mobile Application",
+        id: "Aplikasi Mobile E-Commerce",
       },
       description: {
-        en: "A modern cross-platform mobile e-commerce application with authentication, product browsing, cart management, checkout, and multi-language support.",
-        id: "Aplikasi mobile e-commerce lintas platform dengan autentikasi, penjelajahan produk, manajemen keranjang, checkout, dan dukungan multi-bahasa.",
+        en: "A modern cross-platform mobile e-commerce application built with React Native and Expo, featuring authentication, product catalog browsing, cart management, checkout flows, and multi-language support.",
+        id: "Aplikasi mobile e-commerce lintas platform modern yang dibangun dengan React Native dan Expo, dilengkapi autentikasi, katalog produk, manajemen keranjang, alur checkout, dan dukungan multi-bahasa.",
       },
       role: {
-        en: "Mobile Developer - Freelance",
-        id: "Mobile Developer - Freelance",
+        en: "Mobile Developer - Personal Project",
+        id: "Mobile Developer - Proyek Pribadi",
       },
       tags: ["React Native", "Expo", "TypeScript", "RESTful API"],
       badges: [
@@ -362,18 +408,18 @@ window.portfolioData = {
         id: "Preview aplikasi Chit Chat",
       },
       highlight: {
-        en: "Real-time messaging",
-        id: "Pesan real-time",
+        en: "Real-Time Messaging Application",
+        id: "Aplikasi Pesan Real-Time",
       },
       description: {
-        en: "A Flutter and Firebase chat application demonstrating state management, localization, theming, and Backend-as-a-Service integration.",
-        id: "Aplikasi chat Flutter dan Firebase yang menunjukkan state management, lokalisasi, theming, dan integrasi Backend-as-a-Service.",
+        en: "A real-time cross-platform chat application built with Flutter and Firebase, featuring real-time messaging, user authentication, state management, localization, and dynamic theme switching.",
+        id: "Aplikasi chat real-time lintas platform yang dibangun dengan Flutter dan Firebase, dilengkapi perpesanan langsung, autentikasi pengguna, state management, lokalisasi, dan pergantian tema dinamis.",
       },
       role: {
-        en: "Mobile Developer - Freelance",
-        id: "Mobile Developer - Freelance",
+        en: "Mobile Developer - Personal Project",
+        id: "Mobile Developer - Proyek Pribadi",
       },
-      tags: ["Flutter", "Dart", "Firebase"],
+      tags: ["Flutter", "Dart", "Firebase", "State Management"],
       badges: [
         {
           type: "github",
@@ -391,59 +437,59 @@ window.portfolioData = {
       title: "ZapWork",
       image: "assets/projects/zapwork.jpg",
       alt: {
-        en: "HRMS mobile app preview",
-        id: "Preview aplikasi mobile HRMS",
+        en: "ZapWork HRIS mobile app preview",
+        id: "Preview aplikasi mobile HRIS ZapWork",
       },
       highlight: {
-        en: "Enterprise HR workflow",
-        id: "Workflow HR enterprise",
+        en: "Production HRIS / HRMS Mobile App",
+        id: "Aplikasi Mobile HRIS / HRMS Produksi",
       },
       description: {
-        en: "An enterprise Human Resource Management System built with Flutter, covering employee management, attendance, and performance monitoring workflows.",
-        id: "Sistem Human Resource Management enterprise yang dibangun dengan Flutter untuk manajemen karyawan, absensi, dan monitoring kinerja.",
+        en: "A production HRIS mobile application built with Flutter to digitize and simplify daily employee administration and self-service tasks, featuring responsive layouts, real-time Firebase integration, and optimized API state handling.",
+        id: "Aplikasi mobile HRIS produksi yang dibangun dengan Flutter untuk mendigitalkan dan menyederhanakan administrasi harian karyawan serta self-service, dilengkapi layout responsif, integrasi Firebase real-time, dan penanganan API yang optimal.",
       },
       role: {
         en: "Mobile Developer at PT. Mitra Sinergi Intisolusi",
         id: "Mobile Developer di PT. Mitra Sinergi Intisolusi",
       },
-      tags: ["Flutter", "Dart", "RESTful API"],
+      tags: ["Flutter", "Dart", "Firebase", "RESTful API"],
       badges: [
         {
           type: "android",
           href: "https://play.google.com/store/apps/details?id=com.mitrasinergi.id001",
         },
         {
-          type: "apple",
+          type: "ios",
           href: "https://apps.apple.com/id/app/zapwork/id6743103786",
         },
       ],
       status: {
-        en: "Detailed",
-        id: "Lengkap",
+        en: "Released",
+        id: "Rilis",
       },
       isPlaceholder: false,
     },
     {
       id: "smartnation",
-      title: "Smartnation",
+      title: "SmartNation",
       image: "assets/projects/smartnation.jpeg",
       alt: {
-        en: "Smartnation website preview",
-        id: "Preview website Smartnation",
+        en: "SmartNation platform preview",
+        id: "Preview platform SmartNation",
       },
       highlight: {
-        en: "Mobile-first web rebuild",
-        id: "Rebuild web mobile-first",
+        en: "Smart City News Platform",
+        id: "Platform Berita Smart City",
       },
       description: {
-        en: "A smart city news website rebuilt with a mobile-first design approach and modern UI/UX principles for better engagement.",
-        id: "Website berita smart city yang dibangun ulang dengan pendekatan mobile-first dan prinsip UI/UX modern untuk engagement yang lebih baik.",
+        en: "A smart city platform news website rebuilt with a mobile-first design approach using Vue.js and modern UI/UX principles, ensuring consistent cross-device user experiences.",
+        id: "Website berita platform smart city yang dibangun ulang dengan pendekatan mobile-first menggunakan Vue.js dan prinsip UI/UX modern, memastikan pengalaman pengguna lintas perangkat yang konsisten.",
       },
       role: {
-        en: "Frontend Developer at Citiasia Inc.",
-        id: "Frontend Developer di Citiasia Inc.",
+        en: "Frontend Developer at PT. Citi Asia Internasional (Citiasia Inc.)",
+        id: "Frontend Developer di PT. Citi Asia Internasional (Citiasia Inc.)",
       },
-      tags: ["Vue.js", "TypeScript", "Bootstrap"],
+      tags: ["Vue.js", "TypeScript", "Bootstrap", "Responsive UI"],
       status: {
         en: "Detailed",
         id: "Lengkap",
@@ -452,25 +498,25 @@ window.portfolioData = {
     },
     {
       id: "inidesaku",
-      title: "Inidesaku",
+      title: "IniDesaku",
       image: "assets/projects/inidesaku.webp",
       alt: {
-        en: "Inidesaku mobile app preview",
-        id: "Preview aplikasi mobile Inidesaku",
+        en: "IniDesaku mobile app preview",
+        id: "Preview aplikasi mobile IniDesaku",
       },
       highlight: {
-        en: "Smart village app",
-        id: "Aplikasi smart village",
+        en: "Smart Village Mobile Application",
+        id: "Aplikasi Mobile Smart Village",
       },
       description: {
-        en: "A smart city concept mobile app designed to help rural residents complete digital activities with modern Android architecture.",
-        id: "Aplikasi mobile berkonsep smart city untuk membantu penduduk desa melakukan aktivitas digital dengan arsitektur Android modern.",
+        en: "A smart-city mobile application rebuilt using Kotlin with MVVM architecture, revamping user flows to improve accessibility and usability for rural communities.",
+        id: "Aplikasi mobile smart-city yang dibangun ulang menggunakan Kotlin dengan arsitektur MVVM, memperbarui alur pengguna untuk meningkatkan aksesibilitas dan kemudahan penggunaan bagi masyarakat desa.",
       },
       role: {
-        en: "Mobile Developer at Citiasia Inc.",
-        id: "Mobile Developer di Citiasia Inc.",
+        en: "Mobile Developer at PT. Citi Asia Internasional (Citiasia Inc.)",
+        id: "Mobile Developer di PT. Citi Asia Internasional (Citiasia Inc.)",
       },
-      tags: ["Kotlin", "Firebase", "RESTful API"],
+      tags: ["Kotlin", "MVVM", "Firebase", "RESTful API"],
       status: {
         en: "Detailed",
         id: "Lengkap",
@@ -486,85 +532,50 @@ window.portfolioData = {
         id: "Preview aplikasi mobile TravelECO",
       },
       highlight: {
-        en: "Eco-tourism marketplace",
-        id: "Marketplace ekowisata",
+        en: "Ecotourism Marketplace App",
+        id: "Aplikasi Marketplace Ekowisata",
       },
       description: {
-        en: "A geo-tagging and carbon footprint based ecotourism marketplace for discovering sustainable tourism destinations.",
-        id: "Marketplace ekowisata berbasis geo-tagging dan jejak karbon untuk menemukan destinasi wisata berkelanjutan.",
+        en: "A geo-tagging and carbon footprint based ecotourism marketplace mobile application built with Kotlin MVVM, Retrofit, Room DB, and Firebase, delivered as the Capstone Project partnered with Amati Indonesia.",
+        id: "Aplikasi mobile marketplace ekowisata berbasis geo-tagging dan jejak karbon yang dibangun dengan Kotlin MVVM, Retrofit, Room DB, dan Firebase, diselesaikan sebagai Proyek Capstone bermitra dengan Amati Indonesia.",
       },
       role: {
-        en: "Mobile Developer & Team Leader at Amati Indonesia",
-        id: "Mobile Developer & Team Leader di Amati Indonesia",
+        en: "Mobile Developer & Project Leader at Bangkit Academy x Amati Indonesia",
+        id: "Mobile Developer & Project Leader di Bangkit Academy x Amati Indonesia",
       },
-      tags: ["Kotlin", "Firebase", "TensorFlow"],
+      tags: ["Kotlin", "MVVM", "Retrofit", "Firebase", "Room DB", "TensorFlow"],
       status: {
         en: "Detailed",
         id: "Lengkap",
       },
       isPlaceholder: false,
     },
-    // {
-    //   id: "thesis-research",
-    //   title: "Thesis Research Project",
-    //   image: "assets/projects/thesis.png",
-    //   alt: {
-    //     en: "Thesis research project preview",
-    //     id: "Preview proyek riset skripsi",
-    //   },
-    //   highlight: {
-    //     en: "Research archive",
-    //     id: "Arsip riset",
-    //   },
-    //   description: {
-    //     en: "A thesis-focused research project is being prepared for public portfolio publication. Visual material is ready and the detailed case summary will be added soon.",
-    //     id: "Proyek riset skripsi ini sedang disiapkan untuk publikasi portofolio. Materi visual sudah siap dan ringkasan kasus lengkap akan segera ditambahkan.",
-    //   },
-    //   role: {
-    //     en: "Details coming soon",
-    //     id: "Detail lengkap segera hadir",
-    //   },
-    //   tags: ["Research", "Archive"],
-    //   status: {
-    //     en: "Details coming soon",
-    //     id: "Detail segera hadir",
-    //   },
-    //   note: {
-    //     en: "Public-facing write-up is being curated before publication.",
-    //     id: "Write-up publik sedang dirapikan sebelum dipublikasikan.",
-    //   },
-    //   isPlaceholder: true,
-    // },
-    // {
-    //   id: "hrms-app",
-    //   title: "HRMS App",
-    //   image: "assets/projects/hrms.jpg",
-    //   alt: {
-    //     en: "HRMS mobile app preview",
-    //     id: "Preview aplikasi mobile HRMS",
-    //   },
-    //   highlight: {
-    //     en: "Archive placeholder",
-    //     id: "Placeholder arsip",
-    //   },
-    //   description: {
-    //     en: "This project entry is kept visible as part of the wider portfolio archive while the full story, supporting copy, and public-ready details are being prepared.",
-    //     id: "Entri proyek ini tetap ditampilkan sebagai bagian dari arsip portofolio yang lebih luas, sementara cerita lengkap, copy pendukung, dan detail siap publik sedang disiapkan.",
-    //   },
-    //   role: {
-    //     en: "Portfolio archive",
-    //     id: "Arsip portofolio",
-    //   },
-    //   tags: ["Archive"],
-    //   status: {
-    //     en: "Archive",
-    //     id: "Arsip",
-    //   },
-    //   note: {
-    //     en: "The visual asset is published now; deeper context will follow in a later update.",
-    //     id: "Aset visualnya sudah dipublikasikan sekarang; konteks yang lebih dalam akan menyusul pada update berikutnya.",
-    //   },
-    //   isPlaceholder: true,
-    // },
+    {
+      id: "thesis-research",
+      title: "Vehicle Detection & Counting (Thesis)",
+      image: "assets/projects/thesis.png",
+      alt: {
+        en: "Vehicle detection and counting thesis preview",
+        id: "Preview skripsi deteksi dan penghitungan kendaraan",
+      },
+      highlight: {
+        en: "Outstanding Student Thesis",
+        id: "Skripsi Mahasiswa Berprestasi",
+      },
+      description: {
+        en: "Comparative computer vision research between You Only Look Once (YOLO) and Real-Time Detection Transformer (RT-DETR) algorithms for automated motor vehicle counting, awarded Outstanding Student thesis.",
+        id: "Riset komparatif computer vision antara algoritma You Only Look Once (YOLO) dan Real-Time Detection Transformer (RT-DETR) untuk penghitungan jumlah kendaraan bermotor secara otomatis, meraih predikat Skripsi Mahasiswa Berprestasi.",
+      },
+      role: {
+        en: "Researcher & Author at Krisnadwipayana University",
+        id: "Peneliti & Penulis di Universitas Krisnadwipayana",
+      },
+      tags: ["Python", "YOLO", "RT-DETR", "Computer Vision", "Machine Learning"],
+      status: {
+        en: "Research",
+        id: "Riset",
+      },
+      isPlaceholder: false,
+    },
   ],
 };
